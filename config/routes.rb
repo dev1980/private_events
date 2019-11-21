@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   root to: 'users#new'
   resources :users, only:[:new, :create, :show]
+  resources :events, only:[:new, :create, :show, :index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
