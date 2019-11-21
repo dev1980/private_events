@@ -12,9 +12,13 @@ end
 users = User.take(5)
 users.each do |user|
   10.times do |i|
-    user.created_events.create(title: Faker::Lorem.sentence(word_count: 3),
+    event = user.created_events.create(title: Faker::Lorem.sentence(word_count: 3),
                                description: Faker::Lorem.paragraph,
                                location: Faker::Nation.capital_city,
                                date: i.days.ago)
+      attendees = User.all.sample(5)
+      attendees.each do |attendee|
+        attendee.attendings.create(event_id:event.id)
+      end
   end
 end
