@@ -5,5 +5,5 @@ class Event < ApplicationRecord
 
   scope :past, -> { where('date <= ?', Date.today) }
   scope :upcoming, -> { where('date > ?', Date.today) }
-
+  default_scope -> { order(created_at: :desc) }
 end

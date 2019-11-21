@@ -12,4 +12,15 @@ class ApplicationController < ActionController::Base
         @current_user = nil
     end
 
+    def only_logged_in_users
+        return if current_user
+
+        redirect_to login_path
+    end
+
+    def not_logged_in_users
+        return unless current_user
+
+        redirect_to login_path
+    end
 end
