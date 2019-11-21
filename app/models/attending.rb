@@ -1,0 +1,2 @@
+class Attending < ApplicationRecord
+end
