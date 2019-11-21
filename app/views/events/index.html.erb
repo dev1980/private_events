@@ -1,3 +1,7 @@
 <h1>All Events</h1>
 
-<%= render partial: 'shared/events', locals: { events: @events } %>
+<h2>Upcoming</h2>
+<%= render partial: 'shared/events', locals: { events: @upcoming_events } %>
+
+<h2>Past</h2>
+<%= render partial: 'shared/events', locals: { events: @past_events } %>
