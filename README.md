@@ -32,11 +32,15 @@ Navigate through the project tables from the console:
 ```
 rails console
 ```
+If wanted, seed the database.
+```
+rails db:seed
+```
 
 To run all the tests:
 ```
 rails db:migrate RAILS_ENV=test
-rails test
+rails spec
 ```
 
 ## Requirements

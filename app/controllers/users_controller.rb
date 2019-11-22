@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :not_logged_in_users, only: [:new, :create]
+  before_action :not_logged_in_users, only: %i[new create]
 
   def new
     @user = User.new
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      redirect_to @user 
+      redirect_to @user
     end
   end
 

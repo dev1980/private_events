@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
-  before_action :only_logged_in_users, only: [:new, :create]
+  before_action :only_logged_in_users, only: %i[new create]
 
   def new
     @event = current_user.created_events.build
@@ -10,7 +12,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path
     else
-      render html: "Error"
+      render html: 'Error'
     end
   end
 
