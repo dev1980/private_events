@@ -1,16 +1,23 @@
-require "rails_helper"
+# frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe 'signup', type: :feature do
-  scenario 'Should be a valid sign up' do
+  scenario 'Should be a valid signup' do
     visit signup_path
-    fill_in "Name", with: 'Brham'
-    sleep(5)
-    # users = User.all.count
+    fill_in('Name', with: 'Brham')
     click_button 'Create my account'
-    # new_user = User.all.count
     expect(page).to have_content('Brham')
-    expect{User.increment}.to change{User.count}.by(2)
+  end
+end
+
+RSpec.describe 'the signin process', type: :feature do
+  before :each do
+    User.create(name: 'Brham')
+  end
+  it 'Login' do
+    visit login_path
+    fill_in 'Name', with: 'Brham'
+    click_button 'Login'
+    expect(page).to have_content 'Brham'
   end
 end
