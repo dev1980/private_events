@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       event1 = user.created_events.create(title: 'This is a test title', description: 'This is a test description',
                                           date: Date.today, location: 'Nepal')
 
-      event2 = user.created_events.create(title: 'This is a test title for second event', description: 'This is a test description for second event',
+      event2 = user.created_events.create(title: 'This is a test title for event 2', description: 'description event 2',
                                           date: Date.today, location: 'Bogota')
 
       expect(user.created_events).to eq([event2, event1])
@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
       event1 = user.created_events.create(title: 'This is a test title', description: 'This is a test description',
                                           date: Date.today, location: 'Nepal')
 
-      event2 = user.created_events.create(title: 'This is a test title for second event', description: 'This is a test description for second event',
+      event2 = user.created_events.create(title: 'This is a test title for event 2', description: 'description event 2',
                                           date: Date.today, location: 'Bogota')
 
       attendee = User.create(name: 'Miguel')
