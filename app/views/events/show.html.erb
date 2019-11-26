@@ -1,0 +1,19 @@
+<h2><%= @event.title %></h2>
+<p><%= @event.description %></p>
+<span><%=@event.location%>, <%=@event.date%></span>
+<p>Created By: <%= link_to @event.creator.name, @event.creator %></p>
+<h3>List of Attendees</h3>
+<% @event.attendees.each do |attendee| %>
+<p><%= link_to attendee.name, attendee %></p>
+<% end %>
+<br>
+
+<% if current_user %>
+  <% if @event.attendees.include? current_user %>
+    <p>You are already attending this event</p>
+  <% else %>
+    <%= link_to "Attend this event", attendings_path(event_id: @event.id, user_id: current_user.id), method: :post %>
+  <% end %>
+<% else %>
+  <p>You have to be logged in to attend this event. <%= link_to "Login", login_path %> or <%= link_to "Signup", signup_path %>
+<% end %>

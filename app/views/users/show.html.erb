@@ -1,0 +1,8 @@
+<h1><%= @user.name %> </h1>
+<h2>Events Created By <%= @user.name %>:</h2>
+<%= render partial: 'shared/events', locals: { events: @user.created_events } %>
+<h2>Upcoming Events Attended By User </h2>
+<%= render partial: 'shared/events', locals: { events: @upcoming_events } %>
+
+<h2>Events Visited By User </h2>
+<%= render partial: 'shared/events', locals: { events: @prev_events } %>
